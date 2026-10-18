@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER SHIELD 🛡️ | تحدّي الأمن السيبراني</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- خط تجوال وخط الفيس كود إن دعت الحاجة لرموز الخطوط المونو -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cyber-grid-bg"></div>
+    <div class="cyber-glow-orb orb-1"></div>
+    <div class="cyber-glow-orb orb-2"></div>
+
+    <main class="app-container">
+        <!-- شاشة البداية -->
+        <section id="start-screen" class="view-screen active">
+            <div class="badge-tag">جامعة الحسين بن طلال ✦ بوث التوعية الرقمية</div>
+            
+            <div class="shield-logo-wrap">
+                <div class="shield-pulse"></div>
+                <div class="shield-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="glitch-title" data-text="CYBER SHIELD">CYBER SHIELD</h1>
+            <p class="subtitle">تحدّي الأمن السيبراني — اكتشف الاحتيال!</p>
+
+            <div class="info-card">
+                <h3>هل تمتلك حاسة سادسة لاكتشاف التصيّد الإلكتروني؟</h3>
+                <p>
+                    أمامك <strong>5 مواقف رقمية واقعية</strong> (رسائل بنكية، بريد جامعي، طرود، وإشعارات أمنية).
+                    مهمتك تحديد ما إذا كانت الرسالة <strong>احتيالاً ذكياً (Phishing)</strong> أم <strong>إشعاراً آمناً وشرعياً (Safe)</strong>.
+                </p>
+                <div class="meta-pills">
+                    <span class="pill">⏱️ المدة: 60 - 90 ثانية</span>
+                    <span class="pill">🎯 التقييم: من 100 نقطة</span>
+                    <span class="pill">⚡ كشف فوري مع التعليل</span>
+                </div>
+            </div>
+
+            <button id="btn-start" class="btn btn-primary btn-large">
+                <span>ابدأ التحدي الآن</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </section>
+
+        <!-- شاشة الأسئلة واللعب -->
+        <section id="quiz-screen" class="view-screen">
+            <!-- شريط الرأس والتقدم -->
+            <header class="quiz-header">
+                <div class="brand-mini">
+                    <span class="mini-shield">🛡️</span>
+                    <span class="mini-title">CYBER SHIELD</span>
+                </div>
+                <div class="stats-tracker">
+                    <div class="stat-box">
+                        <span class="stat-label">السؤال</span>
+                        <span id="question-progress-text" class="stat-val">1 / 5</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">النقاط</span>
+                        <span id="current-score-text" class="stat-val score-highlight">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="progress-bar-container">
+                <div id="quiz-progress-bar" class="progress-bar-fill" style="width: 20%;"></div>
+            </div>
+
+            <!-- بطاقة الموقف الرقمي -->
+            <article class="scenario-card">
+                <div class="scenario-meta-bar">
+                    <div class="scenario-type-badge" id="scenario-type-badge">
+                        <span class="badge-icon">📩</span>
+                        <span id="scenario-type-text">بريد إلكتروني وارد</span>
+                    </div>
+                    <div class="scenario-sim-tag">محاكاة أمنية تفاعلية</div>
+                </div>
+
+                <div class="scenario-inner-body">
+                    <!-- تفاصيل الترويسة الرقمية -->
+                    <div class="mail-headers">
+                        <div class="header-line">
+                            <span class="hdr-key">المُرسل:</span>
+                            <span id="scenario-sender" class="hdr-val sender-highlight"></span>
+                        </div>
+                        <div class="header-line" id="scenario-subject-wrap">
+                            <span class="hdr-key">الموضوع:</span>
+                            <span id="scenario-subject" class="hdr-val subject-highlight"></span>
+                        </div>
+                    </div>
+
+                    <!-- محتوى الرسالة -->
+                    <div class="message-content-box">
+                        <p id="scenario-body" class="msg-text"></p>
+
+                        <!-- رابط أو عنصر التفاعل المحاكى -->
+                        <div id="scenario-link-box" class="interactive-link-box">
+                            <div class="link-label">الرابط المرفق داخل الرسالة:</div>
+                            <div class="simulated-link">
+                                <span class="link-icon">🔗</span>
+                                <span id="scenario-link-url" class="link-url"></span>
+                            </div>
+                            <div class="link-hint">⚠️ مرّر أو دقّق في اسم النطاق جيداً قبل الحكم</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- صندوق التفسير والنتيجة الفورية (يظهر بعد النقر) -->
+            <div id="feedback-panel" class="feedback-panel hidden">
+                <div class="feedback-badge" id="feedback-badge">
+                    <span id="feedback-icon"></span>
+                    <span id="feedback-title"></span>
+                </div>
+                <p id="feedback-explanation" class="feedback-desc"></p>
+                <button id="btn-next" class="btn btn-next">
+                    <span>السؤال التالي</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- أزرار الاختيار الكبيرة (مناسبة للمس) -->
+            <div id="decision-actions" class="decision-container">
+                <button id="btn-phishing" class="btn-decision btn-phishing" onclick="handleAnswer(true)">
+                    <div class="btn-icon">🚨</div>
+                    <div class="btn-content">
+                        <span class="btn-title">احتيال وتصيّد</span>
+                        <span class="btn-sub">رسالة خبيثة أو غير شرعية</span>
+                    </div>
+                </button>
+
+                <button id="btn-safe" class="btn-decision btn-safe" onclick="handleAnswer(false)">
+                    <div class="btn-icon">✅</div>
+                    <div class="btn-content">
+                        <span class="btn-title">آمن وشرعي</span>
+                        <span class="btn-sub">إشعار حقيقي وسليم 100%</span>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- شاشة النتيجة النهائية -->
+        <section id="result-screen" class="view-screen">
+            <div class="result-card">
+                <div id="result-icon-wrap" class="result-icon-glow">
+                    🏆
+                </div>
+                
+                <h2 class="result-title">اكتمل التحدي بنجاح!</h2>
+                
+                <div class="score-display-box">
+                    <div class="score-circle">
+                        <span id="final-score-value" class="big-score">0</span>
+                        <span class="score-denom">من 100</span>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="breakdown-item correct">
+                            <span class="dot"></span>
+                            <span class="txt">الإجابات الصحيحة:</span>
+                            <strong id="final-correct-count">0</strong>
+                        </div>
+                        <div class="breakdown-item incorrect">
+                            <span class="dot"></span>
+                            <span class="txt">الإجابات الخاطئة:</span>
+                            <strong id="final-incorrect-count">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="score-verdict-box" class="verdict-banner">
+                    <!-- يتم توليد نص النتيجة ديناميكياً -->
+                </div>
+
+                <!-- نصيحة الأمن السيبراني المتغيرة -->
+                <div class="security-tip-box">
+                    <div class="tip-header">
+                        <span class="tip-icon">💡</span>
+                        <span class="tip-title">نصيحة أمنية سريعة لسلامتك:</span>
+                    </div>
+                    <p id="random-security-tip" class="tip-content"></p>
+                </div>
+
+                <!-- أزرار إعادة اللعب والتحكم -->
+                <div class="result-actions">
+                    <button id="btn-restart" class="btn btn-primary btn-large">
+                        <span>جرّب تحديًا جديدًا</span>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    </button>
+                    <button id="btn-home" class="btn btn-outline">
+                        <span>العودة للرئيسية</span>
+                    </button>
+                </div>
+            </div>
+
+            <footer class="app-footer">
+                <p>مُصمم لبوث جامعة الحسين بن طلال — نشر ثقافة الأمن السيبراني 🛡️</p>
+            </footer>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
